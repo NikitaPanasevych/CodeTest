@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+/* ── Resort palette ──────────────────────────────────── */
+:root {
+  --sand-50:   #fdf8f0;
+  --sand-100:  #f5eddb;
+  --sand-200:  #e8d8b8;
+  --gold:      #d4a843;
+  --gold-dark: #8b6914;
+  --mahogany:  #3d1f0d;
+  --timber:    #5c3410;
+  --teal:      #0d7377;
+
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+}
+
+/* ── Base reset ──────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--sand-50);
+  color: var(--mahogany);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Typography ──────────────────────────────────────── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  color: var(--mahogany);
+  font-weight: 500;
+  margin: 0;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -0.02em; }
+h2 { font-size: 1.5rem; letter-spacing: -0.01em; }
+p  { margin: 0; }
+
+/* ── Animations ──────────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+@keyframes tileEntrance {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-resort-enter {
+  animation: fadeInUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.map-grid-enter {
+  animation: tileEntrance 0.4s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
